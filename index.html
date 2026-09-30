@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17221b">
+    <meta name="description" content="Find Netflix, Prime Video, Spotify and Claude plans in Nepal. Choose your duration, build your cart and order over WhatsApp.">
+    <title>ScreenTime Nepal — More of what you love.</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preload" href="assets/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="announcement">DIGITAL GOODNESS, MADE SIMPLE <span aria-hidden="true">✳</span> RIGHT HERE IN NEPAL</div>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="ScreenTime Nepal, home"><span class="brand-mark" aria-hidden="true">s<span>t</span><i></i></span><span class="brand-name">screentime<span>nepal<span class="brand-dot">.</span></span></span></a>
+        <nav class="nav-links" aria-label="Main navigation"><a href="#plans">Explore plans</a><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a></nav>
+        <button class="bag-button" id="open-cart" type="button" aria-label="Open bag, 0 items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="bag-label">Your bag</span><span id="cart-count" class="bag-count">0</span></button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <span class="eyebrow hero-eyebrow"><span class="live-dot"></span> YOUR DIGITAL LIFE, SORTED</span>
+            <h1 id="hero-title">More of<br>what you <span class="hero-highlight">love<span class="scribble" aria-hidden="true"></span></span><span class="hero-period">.</span></h1>
+            <p>All your favorite subscriptions, one easy place. Pick a plan, pay locally, and get back to the good stuff.</p>
+            <div class="hero-actions"><a href="#plans" class="button button-lime">Explore plans <span aria-hidden="true">↗</span></a><a class="hero-text-link" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a></div>
+            <div class="hero-foot"><span class="small-stars" aria-hidden="true">✳ ✳ ✳</span><span>Simple plans. NPR pricing.<br>Made for Nepal.</span></div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+            <div class="floating-card float-netflix"><span class="floating-label">NEXT UP ON YOUR SCREEN</span><img src="assets/netflix.svg" alt=""><span class="floating-bottom">Movie night, sorted. <span>↗</span></span></div>
+            <div class="floating-card float-spotify"><img src="assets/spotify.svg" alt=""><span>Soundtrack your day <span>↗</span></span></div>
+            <div class="floating-card float-claude"><img src="assets/claude.svg" alt=""><span>A little more brainpower <span>↗</span></span></div>
+            <div class="hero-sticker">YOUR NEXT<br>FAVORITE THING <span>✳</span></div>
+            <span class="hero-spark spark-one">✳</span><span class="hero-spark spark-two">✳</span>
+          </div>
+        </div>
+        <div class="hero-bottom container"><span>01 / ALL THE GOOD STUFF</span><span>SCROLL TO EXPLORE ↓</span></div>
+      </section>
+
+      <div class="marquee" aria-label="Netflix, Prime Video, Spotify, Claude"><div class="marquee-track" aria-hidden="true"><span>NETFLIX <b>✳</b> PRIME VIDEO <b>✳</b> SPOTIFY <b>✳</b> CLAUDE <b>✳</b></span><span>NETFLIX <b>✳</b> PRIME VIDEO <b>✳</b> SPOTIFY <b>✳</b> CLAUDE <b>✳</b></span></div></div>
+
+      <section class="plans-section section-space" id="plans" aria-labelledby="plans-title">
+        <div class="container">
+          <div class="section-head reveal"><div><span class="eyebrow dark-eyebrow">THE LINEUP / 01</span><h2 id="plans-title">Pick your <em>happy place.</em></h2></div><p>Good entertainment, better playlists, smarter work. Choose what fits you.</p></div>
+          <div class="product-grid" id="product-grid"></div>
+          <p class="price-note">Prices shown in NPR. Indicative reseller prices; availability, plan details and final amount confirmed over WhatsApp before payment.</p>
+        </div>
+      </section>
+
+      <section class="how-section section-space" id="how-it-works" aria-labelledby="how-title"><div class="container how-layout"><div class="how-intro reveal"><span class="eyebrow dark-eyebrow">EASY AS 1, 2, 3 / 02</span><h2 id="how-title">The good stuff,<br><em>minus the hassle.</em></h2><p>No complicated checkout. Just choose what you want and chat with us to confirm the details.</p><a href="#plans" class="text-arrow">Find your plan <span aria-hidden="true">↗</span></a></div><ol class="steps"><li class="reveal"><span class="step-number">01</span><div><h3>Find your thing</h3><p>Browse the lineup and pick a subscription and duration that works for you.</p></div><span class="step-icon" aria-hidden="true">↗</span></li><li class="reveal"><span class="step-number">02</span><div><h3>Say hello on WhatsApp</h3><p>Send your bag as a message. We'll confirm the plan, availability and payment details.</p></div><span class="step-icon" aria-hidden="true">↗</span></li><li class="reveal"><span class="step-number">03</span><div><h3>Pay, then enjoy</h3><p>Once confirmed, pay via eSewa, Khalti or bank transfer/QR as arranged in the chat.</p></div><span class="step-icon" aria-hidden="true">↗</span></li></ol></div></section>
+
+      <section class="trust-section section-space" aria-labelledby="trust-title"><div class="container"><div class="trust-heading reveal"><span class="eyebrow">GOOD TO KNOW / 03</span><h2 id="trust-title">No guesswork.<br><em>Just the good stuff.</em></h2></div><div class="trust-grid"><div class="trust-item reveal"><span class="trust-symbol" aria-hidden="true">Rs</span><h3>Prices in NPR</h3><p>See the estimated cost upfront, before you start a conversation.</p></div><div class="trust-item reveal"><span class="trust-symbol" aria-hidden="true">↗</span><h3>Local ways to pay</h3><p>Ask for verified eSewa, Khalti or bank details in your order chat.</p></div><div class="trust-item reveal"><span class="trust-symbol" aria-hidden="true">✳</span><h3>People, not a maze</h3><p>Confirm plan details and availability with a person before paying.</p></div></div></div></section>
+
+      <section class="faq-section section-space" id="faq" aria-labelledby="faq-title"><div class="container faq-layout"><div class="faq-intro reveal"><span class="eyebrow dark-eyebrow">GOOD QUESTIONS / 04</span><h2 id="faq-title">Wondering<br><em>about something?</em></h2><p>Here's the short version. For anything else, just send a message.</p></div><div class="faq-list reveal"><details><summary>How do I place an order? <span aria-hidden="true">+</span></summary><p>Pick a service and duration, add it to your bag, and send the pre-filled order message on WhatsApp. We'll confirm the plan and availability before you pay.</p></details><details><summary>How can I pay? <span aria-hidden="true">+</span></summary><p>eSewa, Khalti and bank transfer/QR can be arranged in chat. Ask for current, verified payment details from the seller; do not send money to details supplied by this website.</p></details><details><summary>When will I get my subscription? <span aria-hidden="true">+</span></summary><p>Delivery timing and access method depend on the plan. Confirm both in WhatsApp before making a payment. This website does not activate subscriptions automatically.</p></details><details><summary>Are these official subscriptions? <span aria-hidden="true">+</span></summary><p>ScreenTime Nepal is an independent reseller concept, not affiliated with the brands shown. Ask the seller about the specific plan, account arrangement and applicable terms before ordering.</p></details><details><summary>Can I change my plan later? <span aria-hidden="true">+</span></summary><p>Contact the seller to discuss changes or renewal. Nothing is automatically renewed by this website.</p></details></div></div></section>
+
+      <section class="closing-section"><div class="container closing-inner reveal"><span class="eyebrow">READY WHEN YOU ARE</span><h2>Let's make your<br>screen time <em>count.</em></h2><a href="#plans" class="button button-dark">Find your plan <span aria-hidden="true">↗</span></a><span class="closing-decor" aria-hidden="true">✳</span></div></section>
+    </main>
+
+    <footer class="footer"><div class="container"><div class="footer-top"><div><a class="brand footer-brand" href="#top" aria-label="ScreenTime Nepal, back to top"><span class="brand-mark" aria-hidden="true">s<span>t</span><i></i></span><span class="brand-name">screentime<span>nepal<span class="brand-dot">.</span></span></span></a><p>A little more of what you love.<br>Right here in Nepal.</p></div><div class="footer-col"><h3>EXPLORE</h3><a href="#plans">All plans</a><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a></div><div class="footer-col"><h3>SAY HELLO</h3><a id="footer-whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp us ↗</a><a id="footer-instagram" hidden target="_blank" rel="noopener noreferrer">Instagram ↗</a><span>eSewa · Khalti · Bank transfer</span></div></div><div class="footer-bottom"><span>© <span id="year"></span> ScreenTime Nepal</span><span>Independent reseller. Not affiliated with Netflix, Amazon, Spotify or Anthropic. Trademarks belong to their owners.</span><a href="#top">BACK TO TOP ↑</a></div></div></footer>
+
+    <dialog id="plan-dialog" class="plan-dialog" aria-labelledby="plan-title"><div class="dialog-shell"><button class="icon-close" type="button" data-close aria-label="Close plan details">×</button><div class="plan-visual" id="plan-visual"></div><div class="plan-info"><span class="eyebrow dark-eyebrow">YOUR NEXT FAVORITE THING</span><h2 id="plan-title"></h2><p id="plan-line"></p><span class="field-label">CHOOSE YOUR DURATION</span><div class="duration-options" id="duration-options" role="group" aria-label="Plan duration"></div><div class="plan-total"><div><span class="field-label">TOTAL FOR YOUR PLAN</span><strong id="plan-price" aria-live="polite"></strong></div><span class="plan-monthly" id="plan-monthly"></span></div><button class="button button-dark add-button" id="add-to-cart" type="button">Add to bag <span aria-hidden="true">↗</span></button><p class="dialog-note">Price and fulfilment are confirmed in chat before payment.</p></div></div></dialog>
+
+    <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title"><div class="cart-shell"><div class="cart-top"><div><span class="eyebrow dark-eyebrow">YOUR PICKS</span><h2 id="cart-title">Your bag<span class="brand-dot">.</span></h2></div><button class="icon-close" type="button" data-close aria-label="Close bag">×</button></div><div id="bag-view" class="cart-view"><div id="cart-items" class="cart-items" aria-live="polite"></div><div class="cart-bottom"><div class="cart-subtotal"><span>Estimated total</span><strong id="cart-total"></strong></div><p>Final plan details and payment are confirmed on WhatsApp.</p><button id="show-checkout" class="button button-dark full-width" type="button">Continue to checkout <span aria-hidden="true">↗</span></button></div></div><div id="checkout-view" class="cart-view checkout-view" hidden><button id="back-to-bag" class="back-button" type="button">← Back to bag</button><h3>Almost there.</h3><p>Pick a payment preference. We'll include it with your order request.</p><label class="field-label" for="customer-name">YOUR NAME (OPTIONAL)</label><input id="customer-name" type="text" maxlength="80" autocomplete="name" placeholder="What should we call you?"><fieldset class="payment-fieldset"><legend class="field-label">PREFERRED PAYMENT METHOD</legend><label><input type="radio" name="payment" value="eSewa" checked><span>eSewa</span></label><label><input type="radio" name="payment" value="Khalti"><span>Khalti</span></label><label><input type="radio" name="payment" value="Bank transfer / QR"><span>Bank / QR</span></label></fieldset><div class="payment-info"><strong>Confirm, then pay.</strong><p>Ask us for verified eSewa or Khalti account details, or a current bank QR in the WhatsApp chat. No money is collected on this site.</p></div><div class="checkout-bottom"><div class="cart-subtotal"><span>Estimated total</span><strong id="checkout-total"></strong></div><a id="whatsapp-checkout" class="button button-lime full-width" href="#" target="_blank" rel="noopener noreferrer"><img src="assets/whatsapp.svg" alt=""> Send order on WhatsApp <span aria-hidden="true">↗</span></a><p id="unconfigured-note" class="unconfigured-note" hidden>No shop number is configured yet. WhatsApp will open a share message; it will not reach the seller automatically.</p></div></div></div></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
