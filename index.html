@@ -2,72 +2,177 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#17221b">
-    <meta name="description" content="Find Netflix, Prime Video, Spotify and Claude plans in Nepal. Choose your duration, build your cart and order over WhatsApp.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="Netflix, Prime Video, Spotify, Claude, Gemini AI Pro and Duolingo Super plans in Nepal. Prices in NPR, ordered in chat, paid with eSewa, Khalti or bank transfer.">
     <title>ScreenTime Nepal — More of what you love.</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="preload" href="assets/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="app.js"></script>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="/styles.css">
+    <script>if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) document.documentElement.classList.add('js-reveal');</script>
+    <script type="module" src="/app.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="announcement">DIGITAL GOODNESS, MADE SIMPLE <span aria-hidden="true">✳</span> RIGHT HERE IN NEPAL</div>
-    <header class="site-header" id="top">
-      <div class="container nav-wrap">
-        <a class="brand" href="#top" aria-label="ScreenTime Nepal, home"><span class="brand-mark" aria-hidden="true">s<span>t</span><i></i></span><span class="brand-name">screentime<span>nepal<span class="brand-dot">.</span></span></span></a>
-        <nav class="nav-links" aria-label="Main navigation"><a href="#plans">Explore plans</a><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a></nav>
-        <button class="bag-button" id="open-cart" type="button" aria-label="Open bag, 0 items"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16l-1 13H5L4 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="bag-label">Your bag</span><span id="cart-count" class="bag-count">0</span></button>
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#top" aria-label="ScreenTime Nepal, back to top"><img src="/assets/favicon.svg" alt="" width="26" height="26">ScreenTime <span>Nepal</span></a>
+        <nav class="nav-links" aria-label="Main"><a href="#plans">Plans</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a></nav>
+        <button class="bag-button" id="open-cart" type="button" aria-label="Open bag, 0 items">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.1 12.1a1 1 0 0 1-1 .9H7.1a1 1 0 0 1-1-.9L5 8Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg>
+          <span id="cart-count" class="bag-count" hidden>0</span>
+        </button>
       </div>
     </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-layout">
-          <div class="hero-copy">
-            <span class="eyebrow hero-eyebrow"><span class="live-dot"></span> YOUR DIGITAL LIFE, SORTED</span>
-            <h1 id="hero-title">More of<br>what you <span class="hero-highlight">love<span class="scribble" aria-hidden="true"></span></span><span class="hero-period">.</span></h1>
-            <p>All your favorite subscriptions, one easy place. Pick a plan, pay locally, and get back to the good stuff.</p>
-            <div class="hero-actions"><a href="#plans" class="button button-lime">Explore plans <span aria-hidden="true">↗</span></a><a class="hero-text-link" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a></div>
-            <div class="hero-foot"><span class="small-stars" aria-hidden="true">✳ ✳ ✳</span><span>Simple plans. NPR pricing.<br>Made for Nepal.</span></div>
-          </div>
-          <div class="hero-art" aria-hidden="true">
-            <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-            <div class="floating-card float-netflix"><span class="floating-label">NEXT UP ON YOUR SCREEN</span><img src="assets/netflix.svg" alt=""><span class="floating-bottom">Movie night, sorted. <span>↗</span></span></div>
-            <div class="floating-card float-spotify"><img src="assets/spotify.svg" alt=""><span>Soundtrack your day <span>↗</span></span></div>
-            <div class="floating-card float-claude"><img src="assets/claude.svg" alt=""><span>A little more brainpower <span>↗</span></span></div>
-            <div class="hero-sticker">YOUR NEXT<br>FAVORITE THING <span>✳</span></div>
-            <span class="hero-spark spark-one">✳</span><span class="hero-spark spark-two">✳</span>
-          </div>
-        </div>
-        <div class="hero-bottom container"><span>01 / ALL THE GOOD STUFF</span><span>SCROLL TO EXPLORE ↓</span></div>
-      </section>
-
-      <div class="marquee" aria-label="Netflix, Prime Video, Spotify, Claude"><div class="marquee-track" aria-hidden="true"><span>NETFLIX <b>✳</b> PRIME VIDEO <b>✳</b> SPOTIFY <b>✳</b> CLAUDE <b>✳</b></span><span>NETFLIX <b>✳</b> PRIME VIDEO <b>✳</b> SPOTIFY <b>✳</b> CLAUDE <b>✳</b></span></div></div>
-
-      <section class="plans-section section-space" id="plans" aria-labelledby="plans-title">
         <div class="container">
-          <div class="section-head reveal"><div><span class="eyebrow dark-eyebrow">THE LINEUP / 01</span><h2 id="plans-title">Pick your <em>happy place.</em></h2></div><p>Good entertainment, better playlists, smarter work. Choose what fits you.</p></div>
-          <div class="product-grid" id="product-grid"></div>
-          <p class="price-note">Prices shown in NPR. Indicative reseller prices; availability, plan details and final amount confirmed over WhatsApp before payment.</p>
+          <h1 id="hero-title" class="hero-title">More of what you love.</h1>
+          <p class="hero-sub"><span id="hero-services">Netflix, Prime Video, Spotify, Claude, Gemini AI Pro, and Duolingo Super</span>. Priced in rupees, paid the way you already pay.</p>
+          <div class="hero-actions">
+            <a class="button" href="#plans">Browse plans</a>
+            <a class="link" href="#how-it-works">How it works<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a>
+          </div>
+          <div class="hero-icons" id="hero-icons"></div>
+          <p class="hero-foot">Order on <span data-channels>WhatsApp or Instagram</span> · Pay with eSewa, Khalti or bank transfer</p>
         </div>
       </section>
 
-      <section class="how-section section-space" id="how-it-works" aria-labelledby="how-title"><div class="container how-layout"><div class="how-intro reveal"><span class="eyebrow dark-eyebrow">EASY AS 1, 2, 3 / 02</span><h2 id="how-title">The good stuff,<br><em>minus the hassle.</em></h2><p>No complicated checkout. Just choose what you want and chat with us to confirm the details.</p><a href="#plans" class="text-arrow">Find your plan <span aria-hidden="true">↗</span></a></div><ol class="steps"><li class="reveal"><span class="step-number">01</span><div><h3>Find your thing</h3><p>Browse the lineup and pick a subscription and duration that works for you.</p></div><span class="step-icon" aria-hidden="true">↗</span></li><li class="reveal"><span class="step-number">02</span><div><h3>Say hello on WhatsApp</h3><p>Send your bag as a message. We'll confirm the plan, availability and payment details.</p></div><span class="step-icon" aria-hidden="true">↗</span></li><li class="reveal"><span class="step-number">03</span><div><h3>Pay, then enjoy</h3><p>Once confirmed, pay via eSewa, Khalti or bank transfer/QR as arranged in the chat.</p></div><span class="step-icon" aria-hidden="true">↗</span></li></ol></div></section>
+      <section class="section plans" id="plans" aria-labelledby="plans-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="plans-title">Choose your plan.</h2>
+            <p>Simple prices in rupees. A real person confirms every order before you pay.</p>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+          <p class="fineprint">Indicative reseller prices in NPR. Availability, plan details and the final amount are confirmed in chat before payment.</p>
+        </div>
+      </section>
 
-      <section class="trust-section section-space" aria-labelledby="trust-title"><div class="container"><div class="trust-heading reveal"><span class="eyebrow">GOOD TO KNOW / 03</span><h2 id="trust-title">No guesswork.<br><em>Just the good stuff.</em></h2></div><div class="trust-grid"><div class="trust-item reveal"><span class="trust-symbol" aria-hidden="true">Rs</span><h3>Prices in NPR</h3><p>See the estimated cost upfront, before you start a conversation.</p></div><div class="trust-item reveal"><span class="trust-symbol" aria-hidden="true">↗</span><h3>Local ways to pay</h3><p>Ask for verified eSewa, Khalti or bank details in your order chat.</p></div><div class="trust-item reveal"><span class="trust-symbol" aria-hidden="true">✳</span><h3>People, not a maze</h3><p>Confirm plan details and availability with a person before paying.</p></div></div></div></section>
+      <section class="section how" id="how-it-works" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2 id="how-title">Three steps. No hassle.</h2>
+            <p>No accounts, no card details, no complicated checkout.</p>
+          </div>
+          <ol class="steps">
+            <li class="step reveal" style="--i:0"><span class="step-num" aria-hidden="true">1</span><h3>Choose a plan</h3><p>Pick a service and the plan that fits. Add as many as you like to your bag.</p></li>
+            <li class="step reveal" style="--i:1"><span class="step-num" aria-hidden="true">2</span><h3>Send your order</h3><p>Your bag becomes a ready-made message on <span data-channels>WhatsApp or Instagram</span>. We confirm availability and plan details.</p></li>
+            <li class="step reveal" style="--i:2"><span class="step-num" aria-hidden="true">3</span><h3>Pay, then enjoy</h3><p>Once confirmed, pay with eSewa, Khalti or bank transfer/QR as arranged in the chat.</p></li>
+          </ol>
+        </div>
+      </section>
 
-      <section class="faq-section section-space" id="faq" aria-labelledby="faq-title"><div class="container faq-layout"><div class="faq-intro reveal"><span class="eyebrow dark-eyebrow">GOOD QUESTIONS / 04</span><h2 id="faq-title">Wondering<br><em>about something?</em></h2><p>Here's the short version. For anything else, just send a message.</p></div><div class="faq-list reveal"><details><summary>How do I place an order? <span aria-hidden="true">+</span></summary><p>Pick a service and duration, add it to your bag, and send the pre-filled order message on WhatsApp. We'll confirm the plan and availability before you pay.</p></details><details><summary>How can I pay? <span aria-hidden="true">+</span></summary><p>eSewa, Khalti and bank transfer/QR can be arranged in chat. Ask for current, verified payment details from the seller; do not send money to details supplied by this website.</p></details><details><summary>When will I get my subscription? <span aria-hidden="true">+</span></summary><p>Delivery timing and access method depend on the plan. Confirm both in WhatsApp before making a payment. This website does not activate subscriptions automatically.</p></details><details><summary>Are these official subscriptions? <span aria-hidden="true">+</span></summary><p>ScreenTime Nepal is an independent reseller concept, not affiliated with the brands shown. Ask the seller about the specific plan, account arrangement and applicable terms before ordering.</p></details><details><summary>Can I change my plan later? <span aria-hidden="true">+</span></summary><p>Contact the seller to discuss changes or renewal. Nothing is automatically renewed by this website.</p></details></div></div></section>
+      <section class="section facts" aria-labelledby="facts-title">
+        <div class="container">
+          <h2 id="facts-title" class="reveal">Good to know.</h2>
+          <div class="fact-grid">
+            <div class="fact reveal" style="--i:0"><span class="fact-icon" aria-hidden="true">Rs</span><h3>Prices in rupees</h3><p>See the estimated cost up front, before you start a conversation.</p></div>
+            <div class="fact reveal" style="--i:1"><span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H17a2 2 0 0 1 2 2v1"/><path d="M4 7.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.5a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 1 4 7.5Z"/><circle cx="16" cy="13.75" r=".75"/></svg></span><h3>Pay the local way</h3><p>eSewa, Khalti or bank transfer/QR. Ask for verified details in your order chat.</p></div>
+            <div class="fact reveal" style="--i:2"><span class="fact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 19.5l1-3.9a8 8 0 1 1 15-4.1Z"/></svg></span><h3>A person, not a maze</h3><p>Confirm plan details and availability with a real person before you pay.</p></div>
+          </div>
+        </div>
+      </section>
 
-      <section class="closing-section"><div class="container closing-inner reveal"><span class="eyebrow">READY WHEN YOU ARE</span><h2>Let's make your<br>screen time <em>count.</em></h2><a href="#plans" class="button button-dark">Find your plan <span aria-hidden="true">↗</span></a><span class="closing-decor" aria-hidden="true">✳</span></div></section>
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-inner">
+          <h2 id="faq-title" class="reveal">Questions? Answers.</h2>
+          <div class="faq-list reveal">
+            <details><summary>How do I place an order?</summary><p>Pick a service and plan, add it to your bag, and send the ready-made order message on <span data-channels>WhatsApp or Instagram</span>. We confirm the plan and availability before you pay.</p></details>
+            <details><summary>How can I pay?</summary><p>eSewa, Khalti and bank transfer/QR can be arranged in chat. Ask for current, verified payment details in the chat. This website never collects payments.</p></details>
+            <details><summary>What's the difference between Shared and Private?</summary><p>For Gemini AI Pro, the Shared plan is the best value with full Pro features, while a Private profile gives you your own profile for a more personal experience. Ask in chat how setup works for your plan.</p></details>
+            <details><summary>When will I get my subscription?</summary><p>Delivery timing and access method depend on the plan. Confirm both in chat before making a payment. This website does not activate subscriptions automatically.</p></details>
+            <details><summary>Are these official subscriptions?</summary><p>ScreenTime Nepal is an independent reseller, not affiliated with the brands shown. Ask about the specific plan, account arrangement and applicable terms before ordering.</p></details>
+            <details><summary>Can I change or renew my plan later?</summary><p>Message us to discuss changes or renewal. Nothing renews automatically through this website.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="container reveal">
+          <h2 id="closing-title">Your next favorite thing is one message away.</h2>
+          <a class="button" href="#plans">Browse plans</a>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer"><div class="container"><div class="footer-top"><div><a class="brand footer-brand" href="#top" aria-label="ScreenTime Nepal, back to top"><span class="brand-mark" aria-hidden="true">s<span>t</span><i></i></span><span class="brand-name">screentime<span>nepal<span class="brand-dot">.</span></span></span></a><p>A little more of what you love.<br>Right here in Nepal.</p></div><div class="footer-col"><h3>EXPLORE</h3><a href="#plans">All plans</a><a href="#how-it-works">How it works</a><a href="#faq">FAQs</a></div><div class="footer-col"><h3>SAY HELLO</h3><a id="footer-whatsapp" href="#" target="_blank" rel="noopener noreferrer">WhatsApp us ↗</a><a id="footer-instagram" hidden target="_blank" rel="noopener noreferrer">Instagram ↗</a><span>eSewa · Khalti · Bank transfer</span></div></div><div class="footer-bottom"><span>© <span id="year"></span> ScreenTime Nepal</span><span>Independent reseller. Not affiliated with Netflix, Amazon, Spotify or Anthropic. Trademarks belong to their owners.</span><a href="#top">BACK TO TOP ↑</a></div></div></footer>
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-fine">Prices are indicative and shown in NPR. Orders are requests confirmed in chat; this website does not collect payments or activate subscriptions. ScreenTime Nepal is an independent reseller and is not affiliated with Netflix, Amazon, Spotify, Anthropic, Google or Duolingo. Trademarks belong to their owners.</p>
+        <div class="footer-cols">
+          <div><h3>Explore</h3><a href="#plans">Plans</a><a href="#how-it-works">How it works</a><a href="#faq">FAQ</a></div>
+          <div><h3>Contact</h3><a id="footer-whatsapp" hidden target="_blank" rel="noopener noreferrer">WhatsApp</a><a id="footer-instagram" hidden target="_blank" rel="noopener noreferrer">Instagram</a></div>
+          <div><h3>Pay with</h3><span>eSewa</span><span>Khalti</span><span>Bank transfer / QR</span></div>
+        </div>
+        <div class="footer-bottom"><span>© <span id="year">2026</span> ScreenTime Nepal</span><a href="#top">Back to top</a></div>
+      </div>
+    </footer>
 
-    <dialog id="plan-dialog" class="plan-dialog" aria-labelledby="plan-title"><div class="dialog-shell"><button class="icon-close" type="button" data-close aria-label="Close plan details">×</button><div class="plan-visual" id="plan-visual"></div><div class="plan-info"><span class="eyebrow dark-eyebrow">YOUR NEXT FAVORITE THING</span><h2 id="plan-title"></h2><p id="plan-line"></p><span class="field-label">CHOOSE YOUR DURATION</span><div class="duration-options" id="duration-options" role="group" aria-label="Plan duration"></div><div class="plan-total"><div><span class="field-label">TOTAL FOR YOUR PLAN</span><strong id="plan-price" aria-live="polite"></strong></div><span class="plan-monthly" id="plan-monthly"></span></div><button class="button button-dark add-button" id="add-to-cart" type="button">Add to bag <span aria-hidden="true">↗</span></button><p class="dialog-note">Price and fulfilment are confirmed in chat before payment.</p></div></div></dialog>
+    <dialog id="plan-dialog" class="sheet sheet-plan" aria-labelledby="plan-title">
+      <div class="sheet-scrim" data-close></div>
+      <div class="sheet-panel">
+        <div class="sheet-grab" data-grab>
+          <span class="grabber" aria-hidden="true"></span>
+          <button class="close-button" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+        </div>
+        <div class="sheet-body plan-body">
+          <div id="plan-icon"></div>
+          <h2 id="plan-title"></h2>
+          <p class="plan-line" id="plan-line"></p>
+          <p class="plan-note" id="plan-note" hidden></p>
+          <fieldset class="segmented" id="plan-options">
+            <legend class="visually-hidden">Choose a plan</legend>
+            <div class="segmented-track"><span class="segmented-thumb" aria-hidden="true"></span><div class="segmented-options" id="plan-option-list"></div></div>
+          </fieldset>
+          <p class="plan-price"><strong id="plan-price"></strong><span id="plan-caption"></span></p>
+          <button class="button button-block" id="add-to-cart" type="button">Add to Bag</button>
+          <p class="sheet-fine">Price and availability are confirmed in chat before you pay.</p>
+        </div>
+      </div>
+    </dialog>
 
-    <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title"><div class="cart-shell"><div class="cart-top"><div><span class="eyebrow dark-eyebrow">YOUR PICKS</span><h2 id="cart-title">Your bag<span class="brand-dot">.</span></h2></div><button class="icon-close" type="button" data-close aria-label="Close bag">×</button></div><div id="bag-view" class="cart-view"><div id="cart-items" class="cart-items" aria-live="polite"></div><div class="cart-bottom"><div class="cart-subtotal"><span>Estimated total</span><strong id="cart-total"></strong></div><p>Final plan details and payment are confirmed on WhatsApp.</p><button id="show-checkout" class="button button-dark full-width" type="button">Continue to checkout <span aria-hidden="true">↗</span></button></div></div><div id="checkout-view" class="cart-view checkout-view" hidden><button id="back-to-bag" class="back-button" type="button">← Back to bag</button><h3>Almost there.</h3><p>Pick a payment preference. We'll include it with your order request.</p><label class="field-label" for="customer-name">YOUR NAME (OPTIONAL)</label><input id="customer-name" type="text" maxlength="80" autocomplete="name" placeholder="What should we call you?"><fieldset class="payment-fieldset"><legend class="field-label">PREFERRED PAYMENT METHOD</legend><label><input type="radio" name="payment" value="eSewa" checked><span>eSewa</span></label><label><input type="radio" name="payment" value="Khalti"><span>Khalti</span></label><label><input type="radio" name="payment" value="Bank transfer / QR"><span>Bank / QR</span></label></fieldset><div class="payment-info"><strong>Confirm, then pay.</strong><p>Ask us for verified eSewa or Khalti account details, or a current bank QR in the WhatsApp chat. No money is collected on this site.</p></div><div class="checkout-bottom"><div class="cart-subtotal"><span>Estimated total</span><strong id="checkout-total"></strong></div><a id="whatsapp-checkout" class="button button-lime full-width" href="#" target="_blank" rel="noopener noreferrer"><img src="assets/whatsapp.svg" alt=""> Send order on WhatsApp <span aria-hidden="true">↗</span></a><p id="unconfigured-note" class="unconfigured-note" hidden>No shop number is configured yet. WhatsApp will open a share message; it will not reach the seller automatically.</p></div></div></div></dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog id="cart-dialog" class="sheet sheet-bag" aria-labelledby="cart-title">
+      <div class="sheet-scrim" data-close></div>
+      <div class="sheet-panel">
+        <div class="sheet-grab bag-head" data-grab>
+          <span class="grabber" aria-hidden="true"></span>
+          <h2 id="cart-title">Bag</h2>
+          <button class="close-button" type="button" data-close aria-label="Close bag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+        </div>
+        <div class="bag-view" id="bag-view">
+          <div class="sheet-body"><div class="cart-items" id="cart-items"></div></div>
+          <div class="sheet-foot">
+            <p class="total-row"><span>Estimated total</span><strong id="cart-total"></strong></p>
+            <button class="button button-block" id="show-checkout" type="button">Check Out</button>
+            <p class="sheet-fine">Final plan details and payment are confirmed in chat.</p>
+          </div>
+        </div>
+        <div class="bag-view" id="checkout-view" hidden>
+          <div class="sheet-body">
+            <button class="back-link" id="back-to-bag" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>Bag</button>
+            <p class="checkout-sub">Choose how you'd like to pay. We'll include it in your order message.</p>
+            <label class="group-label" for="customer-name">Your name (optional)</label>
+            <input class="field" id="customer-name" type="text" maxlength="80" autocomplete="name" placeholder="What should we call you?">
+            <fieldset class="group">
+              <legend class="group-label">Payment method</legend>
+              <label class="group-row"><input type="radio" name="payment" value="eSewa" checked><span>eSewa</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></label>
+              <label class="group-row"><input type="radio" name="payment" value="Khalti"><span>Khalti</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></label>
+              <label class="group-row"><input type="radio" name="payment" value="Bank transfer / QR"><span>Bank transfer / QR</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></label>
+            </fieldset>
+            <p class="callout"><strong>Confirm, then pay.</strong> Ask for verified eSewa or Khalti details, or a current bank QR, in the chat. No money is collected on this site.</p>
+          </div>
+          <div class="sheet-foot">
+            <p class="total-row"><span>Estimated total</span><strong id="checkout-total"></strong></p>
+            <a class="button button-block" id="whatsapp-checkout" href="#" target="_blank" rel="noopener noreferrer"><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Send order on WhatsApp</a>
+            <a class="button button-block" id="instagram-checkout" href="#" target="_blank" rel="noopener noreferrer" hidden><svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>Copy order &amp; open Instagram</a>
+            <p class="sheet-fine" id="checkout-note" hidden></p>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" popover="manual" role="status"></div>
   </body>
 </html>
