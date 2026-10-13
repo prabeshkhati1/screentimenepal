@@ -27,6 +27,7 @@ const chrome = spawn(process.env.CHROME_BIN || 'google-chrome', ['--headless=new
 const sleep = ms => new Promise(done => setTimeout(done, ms));
 const price = (id, plan) => `Rs. ${new Intl.NumberFormat('en-NP').format(config.products.find(product => product.id === id).plans[plan])}`;
 const hasWhatsApp = /^\d{10,15}$/.test(String(config.whatsappNumber).replace(/\D/g, ''));
+const lowestPrice = `Rs. ${new Intl.NumberFormat('en-NP').format(Math.min(...config.products.flatMap(product => Object.values(product.plans))))}`;
 
 try {
   let debuggerUrl;
@@ -85,9 +86,18 @@ try {
   await send('Runtime.enable');
   await send('Log.enable');
   await send('Network.enable');
+  await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: 'dark' }] });
   await send('Page.navigate', { url: `http://127.0.0.1:${port}/` });
   await until(`document.querySelectorAll(".tile").length === ${config.products.length}`);
   assert.equal(await evaluate('document.title'), 'ScreenTime Nepal — More of what you love.');
+  assert.equal(await evaluate('getComputedStyle(document.body).backgroundColor'), 'rgb(255, 255, 255)', 'White even when the system prefers dark');
+
+  // Scroll-in animations end in their final state: chat bubbles visible, stats counted up to the catalog's values.
+  await evaluate(`${$('.chat')}.scrollIntoView({ behavior: "instant" })`);
+  await until(`getComputedStyle(${$('.chat .bubble:last-child')}).opacity === "1"`);
+  await evaluate(`${$('.stats')}.scrollIntoView({ behavior: "instant" })`);
+  await until(`${$('.stat:nth-child(2)')}.classList.contains("visible") && ${$('#stat-from')}.textContent === "${lowestPrice}" && ${$('#stat-services')}.textContent === "${config.products.length}"`);
+  await evaluate('scrollTo({ top: 0, behavior: "instant" })');
 
   // Month plans: pick 3 months, add to bag; the plan sheet hands off to the bag.
   await evaluate(`${$('#product-grid [data-product=netflix]')}.click()`);
@@ -167,12 +177,14 @@ try {
   await until(`document.querySelectorAll(".tile").length === ${config.products.length}`);
   assert.equal(await evaluate('document.documentElement.classList.contains("js-reveal")'), false);
   assert.equal(await evaluate(`getComputedStyle(${$('.hero-icon')}).animationName`), 'none');
+  assert.equal(await evaluate(`getComputedStyle(${$('.chat .bubble')}).opacity`), '1');
+  assert.equal(await evaluate(`${$('#stat-from')}.textContent`), lowestPrice);
   await evaluate(`${$('#product-grid [data-product=spotify]')}.click()`);
   await until(`${$('#plan-dialog')}.open`);
   assert.equal(await evaluate(`getComputedStyle(${$('#plan-dialog .sheet-panel')}).transform`), 'none');
 
   assert.deepEqual(errors, [], 'No browser errors or missing assets');
-  console.log('Smoke test passed: catalog, plan picker, bag, checkout, persistence, mobile gestures, legacy links, reduced motion, no console errors.');
+  console.log('Smoke test passed: white theme, scroll-in animations, catalog, plan picker, bag, checkout, persistence, mobile gestures, legacy links, reduced motion, no console errors.');
   socket.close();
 } finally {
   chrome.kill();

@@ -140,10 +140,13 @@ const total = () => cart.reduce((sum, item) => sum + productById.get(item.id).pl
 
 function renderProducts() {
   $('#hero-services').textContent = new Intl.ListFormat('en').format(config.products.map(product => product.name));
-  $('#hero-icons').innerHTML = config.products.map((product, index) => `<button class="hero-icon" type="button" data-product="${product.id}" style="--i:${index}" aria-label="${product.name} plans">${icon(product)}</button>`).join('');
+  $('#hero-icons').innerHTML = config.products.map((product, index) => `<button class="hero-icon" type="button" data-product="${product.id}" data-brand="${product.id}" style="--i:${index}" aria-label="${product.name} plans">${icon(product)}</button>`).join('');
+  $('#closing-icons').innerHTML = config.products.map((product, index) => `<span class="closing-icon" data-brand="${product.id}" style="--o:${index - (config.products.length - 1) / 2}">${icon(product)}</span>`).join('');
+  $('#stat-services').textContent = config.products.length;
+  $('#stat-from').textContent = formatPrice(Math.min(...config.products.flatMap(product => Object.values(product.plans))));
   $('#product-grid').innerHTML = config.products.map((product, index) => {
     const [[plan, amount], ...others] = Object.entries(product.plans).sort((a, b) => a[1] - b[1]);
-    return `<article class="tile reveal" style="--i:${index % 3}">${icon(product)}<p class="tile-category">${product.category}</p><h3>${product.name}</h3><p class="tile-line">${product.line}</p><p class="tile-price">${others.length ? 'From ' : ''}${formatPrice(amount)} <span>${planText(product, plan)}</span></p><button class="pill" type="button" data-product="${product.id}">Choose<span class="visually-hidden"> a ${product.name} plan</span></button></article>`;
+    return `<article class="tile reveal" data-brand="${product.id}" style="--i:${index % 3}">${icon(product)}<p class="tile-category">${product.category}</p><h3>${product.name}</h3><p class="tile-line">${product.line}</p><p class="tile-price">${others.length ? 'From ' : ''}${formatPrice(amount)} <span>${planText(product, plan)}</span></p><button class="pill" type="button" data-product="${product.id}">Choose<span class="visually-hidden"> a ${product.name} plan</span></button></article>`;
   }).join('');
 }
 
@@ -166,6 +169,7 @@ function openPlan(id, origin) {
   if (!product) return;
   const plans = Object.keys(product.plans);
   selected = { product };
+  $('#plan-dialog').dataset.brand = id;
   $('#plan-icon').innerHTML = icon(product);
   $('#plan-title').textContent = product.name;
   $('#plan-line').textContent = product.line;
@@ -257,6 +261,14 @@ document.addEventListener('click', event => {
   if (trigger) openPlan(trigger.dataset.product, trigger.closest('.tile') ?? trigger);
 });
 document.addEventListener('touchstart', () => {}, { passive: true }); // lets iOS Safari show :active press states
+// Hovered icons tilt toward the pointer and catch the light; tiles get a spotlight (see --x/--y in styles.css).
+document.addEventListener('pointermove', event => {
+  const target = event.pointerType === 'mouse' && event.target.closest('.hero-icon, .tile');
+  if (!target) return;
+  const rect = target.getBoundingClientRect();
+  target.style.setProperty('--x', ((event.clientX - rect.left) / rect.width).toFixed(3));
+  target.style.setProperty('--y', ((event.clientY - rect.top) / rect.height).toFixed(3));
+});
 $('#plan-options').addEventListener('change', event => choosePlan(event.target.value, true));
 $('#add-to-cart').addEventListener('click', async () => {
   const { product, plan } = selected;
@@ -295,11 +307,20 @@ $('#instagram-checkout').addEventListener('click', () => {
 const linked = location.pathname.match(/^\/products\/([\w-]+)/)?.[1] ?? location.hash.slice(1);
 if (productById.has(linked)) openPlan(linked);
 
+// Count a number up from zero on a critically damped spring, keeping its text format ("Rs. 1,399").
+function countUp(element) {
+  const text = element.textContent, target = Number(text.replace(/\D/g, ''));
+  const counter = spring(value => { element.textContent = text.replace(/[\d,]+/, new Intl.NumberFormat('en-NP').format(Math.round(value))); });
+  counter.set(0);
+  counter.to(target, { response: 1.2 });
+}
+
 if (document.documentElement.classList.contains('js-reveal')) {
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        entry.target.querySelectorAll('[data-count]').forEach(countUp);
         observer.unobserve(entry.target);
       }
     }
