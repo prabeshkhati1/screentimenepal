@@ -224,7 +224,7 @@ function updateOrderLinks() {
 function showView(view, from) {
   for (const other of [$('#bag-view'), $('#checkout-view')]) other.hidden = other !== view;
   $('#cart-title').textContent = view.id === 'checkout-view' ? 'Checkout' : 'Bag';
-  view.animate(reducedMotion.matches ? { opacity: [0, 1] } : { opacity: [0, 1], translate: [`${from} 0`, '0 0'] }, { duration: 350, easing: ease });
+  view.animate(reducedMotion.matches ? { opacity: [0, 1] } : { opacity: [0, 1], translate: [`${from} 0`, '0 0'] }, { duration: 240, easing: ease });
 }
 
 function openCart() {
@@ -276,7 +276,7 @@ $('#add-to-cart').addEventListener('click', async () => {
   if (existing) existing.quantity = Math.min(20, existing.quantity + 1);
   else cart.push({ id: product.id, plan, quantity: 1 });
   saveCart();
-  if (!reducedMotion.matches) $('#cart-count').animate({ scale: [1, 1.4, 1] }, { duration: 450, easing: ease });
+  if (!reducedMotion.matches) $('#cart-count').animate({ scale: [1, 1.4, 1] }, { duration: 280, easing: ease });
   if (await planSheet.close()) openCart();
 });
 $('#open-cart').addEventListener('click', openCart);

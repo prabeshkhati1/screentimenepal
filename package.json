@@ -1,0 +1,28 @@
+{
+  "name": "screentimenepal",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A lightweight static storefront for Netflix, Prime Video, Spotify, Claude, Gemini AI Pro and Duolingo Super plans in Nepal. Customers pick a plan, collect it in a bag stored in their browser, and send the order as a chat message on WhatsApp or Instagram. **This is not a payment gateway and does not activate subscriptions.**",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "PLAYWRIGHT_BROWSERS_PATH=.playwright-browsers node tests/playwright.mjs",
+    "test:syntax": "node --check app.js && node --check config.js && node --check tests/playwright.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prabeshkhati1/screentimenepal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabeshkhati1/screentimenepal/issues"
+  },
+  "homepage": "https://github.com/prabeshkhati1/screentimenepal#readme",
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

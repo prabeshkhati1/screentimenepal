@@ -91,6 +91,8 @@ try {
   await until(`document.querySelectorAll(".tile").length === ${config.products.length}`);
   assert.equal(await evaluate('document.title'), 'ScreenTime Nepal — More of what you love.');
   assert.equal(await evaluate('getComputedStyle(document.body).backgroundColor'), 'rgb(255, 255, 255)', 'White even when the system prefers dark');
+  assert.match(await evaluate('getComputedStyle(document.querySelector(".nav")).backdropFilter'), /blur/, 'Navigation uses a glass material');
+  assert.equal(await evaluate('getComputedStyle(document.querySelector(".tile")).borderTopWidth'), '1px', 'Catalog tiles have a glass edge');
 
   // Scroll-in animations end in their final state: chat bubbles visible, stats counted up to the catalog's values.
   await evaluate(`${$('.chat')}.scrollIntoView({ behavior: "instant" })`);
